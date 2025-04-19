@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cah5kkuvc70gj"
-path="res://.godot/imported/pngfind.com-seta-png-1358028.png-cb1a56afa9abe9bceb3ac8e5c5ad738a.ctex"
+path="res://.godot/imported/pngfind.com-seta-png-1358028.png-52b028f737531089eb71ae32c0defb3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Viento/pngfind.com-seta-png-1358028.png"
-dest_files=["res://.godot/imported/pngfind.com-seta-png-1358028.png-cb1a56afa9abe9bceb3ac8e5c5ad738a.ctex"]
+source_file="res://Assets/Enviroment/Viento/pngfind.com-seta-png-1358028.png"
+dest_files=["res://.godot/imported/pngfind.com-seta-png-1358028.png-52b028f737531089eb71ae32c0defb3a.ctex"]
 
 [params]
 
