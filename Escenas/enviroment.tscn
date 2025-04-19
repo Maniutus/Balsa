@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://66vx11cjlo3w"]
+
+[ext_resource type="Script" uid="uid://d4b7m2sfltt41" path="res://Scripts/enviroment.gd" id="1_gcjfx"]
+[ext_resource type="Texture2D" uid="uid://cah5kkuvc70gj" path="res://Assets/Viento/pngfind.com-seta-png-1358028.png" id="2_vyo3i"]
+
+[node name="Enviroment" type="Node2D"]
+script = ExtResource("1_gcjfx")
+
+[node name="Ciclo_D_N" type="TextureProgressBar" parent="."]
+offset_right = 206.0
+offset_bottom = 164.0
+max_value = 1.0
+step = 0.0
+fill_mode = 4
+
+[node name="Viento" type="Node2D" parent="."]
+position = Vector2(0, 1.52588e-05)
+
+[node name="Flecha" type="Sprite2D" parent="Viento"]
+position = Vector2(0, -209)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("2_vyo3i")
