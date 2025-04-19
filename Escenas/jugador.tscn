@@ -1,0 +1,187 @@
+[gd_scene load_steps=36 format=3 uid="uid://dn7eurijy8sqn"]
+
+[ext_resource type="Script" uid="uid://cjwfxrsoupc1t" path="res://Scripts/jugador.gd" id="1_83bx5"]
+[ext_resource type="Texture2D" uid="uid://u08x7gj1o7rv" path="res://Assets/Personaje Caminar/1_entity_000_WALK_000.png" id="2_mb0pc"]
+[ext_resource type="Texture2D" uid="uid://dkwtlq45dnei7" path="res://Assets/Personaje swin/2_entity_000_WALK_000.png" id="2_tg0k3"]
+[ext_resource type="Texture2D" uid="uid://bns25n3f86ypf" path="res://Assets/Barras/Rayofondo.png" id="2_xoi2s"]
+[ext_resource type="Texture2D" uid="uid://bnjbvi4vubikk" path="res://Assets/Barras/RayoMarco.png" id="3_gd8ro"]
+[ext_resource type="Texture2D" uid="uid://bewc6k03o66k" path="res://Assets/Personaje swin/2_entity_000_WALK_001.png" id="3_srao3"]
+[ext_resource type="Texture2D" uid="uid://11rbhivn3isc" path="res://Assets/Personaje Caminar/1_entity_000_WALK_001.png" id="3_wkbbf"]
+[ext_resource type="Texture2D" uid="uid://dbhj0p7x5chep" path="res://Assets/Personaje swin/2_entity_000_WALK_002.png" id="4_40r6v"]
+[ext_resource type="Texture2D" uid="uid://1p3ulrd3t440" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_000.png" id="4_lmxlj"]
+[ext_resource type="Texture2D" uid="uid://rvwg5xu62i2b" path="res://Assets/Barras/Rayobarra.png" id="4_pjt11"]
+[ext_resource type="Texture2D" uid="uid://e7d5b8w2vqla" path="res://Assets/Personaje Caminar/1_entity_000_WALK_002.png" id="4_u4ymj"]
+[ext_resource type="Texture2D" uid="uid://bc246kg06jc0k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_003.png" id="5_3doo3"]
+[ext_resource type="Texture2D" uid="uid://dcudoxgmth0gu" path="res://Assets/Personaje swin/2_entity_000_WALK_003.png" id="5_56xm4"]
+[ext_resource type="Texture2D" uid="uid://cip3r1ys8qig8" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_001.png" id="5_lmw2y"]
+[ext_resource type="Texture2D" uid="uid://c7oynfawn6th3" path="res://Assets/Personaje swin/2_entity_000_WALK_004.png" id="6_ovsq0"]
+[ext_resource type="Texture2D" uid="uid://vyxinf2lnpc6" path="res://Assets/Personaje Caminar/1_entity_000_WALK_004.png" id="6_pjyyr"]
+[ext_resource type="Texture2D" uid="uid://2ns7yf5jjc11" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_002.png" id="6_w07v2"]
+[ext_resource type="Texture2D" uid="uid://f2314nwje4gf" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_003.png" id="7_8ixdv"]
+[ext_resource type="Texture2D" uid="uid://dlx5jq4f3124g" path="res://Assets/Personaje Caminar/1_entity_000_WALK_005.png" id="7_fnc7j"]
+[ext_resource type="Texture2D" uid="uid://b0l4gaarnk6n" path="res://Assets/Personaje swin/2_entity_000_WALK_005.png" id="7_u04cl"]
+[ext_resource type="Texture2D" uid="uid://bhnhetv7lfnxb" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_004.png" id="8_8gr6o"]
+[ext_resource type="Texture2D" uid="uid://c7ec0c8pee5px" path="res://Assets/Personaje swin/2_entity_000_WALK_006.png" id="8_h2lrk"]
+[ext_resource type="Texture2D" uid="uid://dsup2bdmr487k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_006.png" id="8_lkbdx"]
+[ext_resource type="Texture2D" uid="uid://cf8d8cexd6xsy" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_005.png" id="9_fnfqt"]
+[ext_resource type="Texture2D" uid="uid://c63lkji8sx5mi" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_006.png" id="10_umhct"]
+[ext_resource type="Texture2D" uid="uid://c712gi2l3jaus" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_000.png" id="11_2dfxi"]
+[ext_resource type="Texture2D" uid="uid://c5whkdyrs3vrj" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_001.png" id="12_xoi2s"]
+[ext_resource type="Texture2D" uid="uid://rryyufqerna" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_002.png" id="13_gd8ro"]
+[ext_resource type="Texture2D" uid="uid://6x8wa2kxr4ea" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_003.png" id="14_pjt11"]
+[ext_resource type="Texture2D" uid="uid://fkxoc0mo0pi1" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_004.png" id="15_sfvxi"]
+[ext_resource type="Texture2D" uid="uid://hwbm4d20873q" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_005.png" id="16_4gcne"]
+[ext_resource type="Texture2D" uid="uid://cbgx5un3kn75n" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_006.png" id="17_kwvjv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tg0k3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lmxlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lmw2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w07v2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8ixdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8gr6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fnfqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_umhct")
+}],
+"loop": true,
+"name": &"Idle_Land",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2dfxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xoi2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gd8ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pjt11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sfvxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4gcne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kwvjv")
+}],
+"loop": true,
+"name": &"Idle_Swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tg0k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_srao3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_40r6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56xm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ovsq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u04cl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h2lrk")
+}],
+"loop": true,
+"name": &"Swim",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wkbbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mb0pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u4ymj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3doo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pjyyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fnc7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lkbdx")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56xm4"]
+size = Vector2(411.45, 691.406)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40r6v"]
+size = Vector2(36, 19)
+
+[node name="Jugador" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_83bx5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StaminaBar" type="TextureProgressBar" parent="UI"]
+offset_left = 141.0
+offset_top = 847.0
+offset_right = 301.0
+offset_bottom = 1077.0
+scale = Vector2(0.504, 0.403)
+max_value = 1.0
+step = 0.0
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("2_xoi2s")
+texture_over = ExtResource("3_gd8ro")
+texture_progress = ExtResource("4_pjt11")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40.0001, -27.1954)
+scale = Vector2(0.235752, 0.235752)
+sprite_frames = SubResource("SpriteFrames_tg0k3")
+animation = &"Idle_Land"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 1)
+scale = Vector2(0.235752, 0.235752)
+shape = SubResource("RectangleShape2D_56xm4")
+
+[node name="Waterdetector" type="Area2D" parent="."]
+position = Vector2(2, 73)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waterdetector"]
+position = Vector2(-15, 16)
+shape = SubResource("RectangleShape2D_40r6v")

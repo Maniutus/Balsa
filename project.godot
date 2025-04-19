@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Balsa 2.0"
+run/main_scene="uid://ujys0qes06yt"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://Assets/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=1
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Escenas/": "purple",
+"res://Scripts/": "teal",
+"res://Shaders/": "pink"
+}
+
+[layer_names]
+
+2d_physics/layer_1="Suelo"
+2d_physics/layer_2="Waterdetector"
+2d_physics/layer_3="Jugador"
