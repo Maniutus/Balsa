@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Balsa 2.0"
+config/name="Balsa"
 run/main_scene="uid://ujys0qes06yt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/icon.svg"
