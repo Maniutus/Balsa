@@ -171,7 +171,7 @@ texture_progress = ExtResource("4_pjt11")
 position = Vector2(40.0001, -27.1954)
 scale = Vector2(0.235752, 0.235752)
 sprite_frames = SubResource("SpriteFrames_tg0k3")
-animation = &"Idle_Land"
+animation = &"Walk"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 1)
