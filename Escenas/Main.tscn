@@ -1,18 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://ujys0qes06yt"]
+[gd_scene load_steps=9 format=3 uid="uid://ujys0qes06yt"]
 
 [ext_resource type="Shader" uid="uid://bq2jxfpjq0fgh" path="res://Shaders/Mar.gdshader" id="2_sem21"]
 [ext_resource type="Texture2D" uid="uid://cp7axmuvobiay" path="res://Assets/barca.png" id="3_j5xpj"]
 [ext_resource type="Texture2D" uid="uid://ds3ttg5frkt7p" path="res://Assets/Tiles/Balsa/Suelo/Suelo1.png" id="4_3yqt6"]
 [ext_resource type="PackedScene" uid="uid://dn7eurijy8sqn" path="res://Escenas/jugador.tscn" id="4_qpgdo"]
+[ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="5_3yqt6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5xpj"]
 shader = ExtResource("2_sem21")
-shader_parameter/water_color = Color(0, 0.75, 0.8, 1)
+shader_parameter/water_color = Color(0.0823529, 0.709804, 0.643137, 1)
 shader_parameter/time_speed = 1.0
-shader_parameter/wave_speed = 6.0
-shader_parameter/wave_scale = 12.075
-shader_parameter/caustic_freq = 15.86
-shader_parameter/caustic_strength = 0.135
+shader_parameter/wave_speed = 5.0
+shader_parameter/wave_scale = 7.0
+shader_parameter/caustic_freq = 15.2
+shader_parameter/caustic_strength = 0.05
 shader_parameter/caustic_width = 0.01
 shader_parameter/noise_scale = 35.29
 shader_parameter/noise_speed = 0.395
@@ -58,3 +59,7 @@ scale = Vector2(0.35, 0.35)
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(1010, 614)
+
+[node name="Enviroment" parent="." instance=ExtResource("5_3yqt6")]
+position = Vector2(1772, 154)
+scale = Vector2(0.135, 0.135)
