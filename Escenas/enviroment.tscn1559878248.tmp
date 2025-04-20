@@ -10,10 +10,12 @@ script = ExtResource("1_gcjfx")
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Viento" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 1.52588e-05)
 
 [node name="Flecha" type="Sprite2D" parent="Viento"]
-position = Vector2(0, -500)
+visible = false
+position = Vector2(-35, -542)
 scale = Vector2(0.345, 0.345)
 texture = ExtResource("2_vyo3i")
 
