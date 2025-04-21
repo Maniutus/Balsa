@@ -19,7 +19,6 @@ var clima = dic_climas.keys()[0]
 @export var dir_viento = 0
 
 
-
 func _ready() -> void:
 	print (clima)
 	direccion_viento()
@@ -52,12 +51,16 @@ func cambio_ciclo_dia_noche(delta):
 			print(nombre_dia)
 
 func animacion_sprites(delta):
+	
+	#DiayNoche
 	$Dia_Noche.rotation += (PI * 2) / (2 * min_dia) * delta # Gira el sprite del disco
 	
-	$Viento.rotation = dir_viento
-	var raw:int = $Viento.rotation
-	
-	#print("Angulo flecha: ", dir_viento," y ",raw)
+	#Brujula
+	var vel_giro = 2.0
+	var dir_viento_rad = deg_to_rad(dir_viento)
+	$Viento.rotation = lerp_angle($Viento.rotation, dir_viento_rad, vel_giro * delta )
+
+
 
 func pool_climas():
 	var rng = RandomNumberGenerator.new()
@@ -81,11 +84,15 @@ func velocidad_viento():
 	print("La velocidad del viento es: ", velocidad_viento)
 	
 func direccion_viento():
-	var rango_max = 10
+	var rango_max = 150
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var dir_viento_raw = rng.randi_range(dir_viento-rango_max, dir_viento+rango_max)
-	dir_viento = ((dir_viento_raw % 360) + 360) % 360 
+	
+	#Formula para convertir los radianes a grados y quitar los negativos del rotation.
+	#dir_viento = ((dir_viento_raw % 360) + 360) % 360  
+	
+	dir_viento = dir_viento_raw 
 	print("Direccion Viento: ", dir_viento, " grados")
 	
 	

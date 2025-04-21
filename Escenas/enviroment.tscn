@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dnsw4c05v5nmo" path="res://Assets/Enviroment/Disco_Hora.png" id="3_dlfo4"]
 
 [node name="Enviroment" type="Node2D"]
+position = Vector2(952, 538)
 script = ExtResource("1_gcjfx")
+metadata/_edit_group_ = true
 
 [node name="Sprites" type="Node2D" parent="."]
 
