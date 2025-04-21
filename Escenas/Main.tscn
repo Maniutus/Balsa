@@ -19,7 +19,7 @@ shader_parameter/noise_scale = 35.29
 shader_parameter/noise_speed = 0.395
 shader_parameter/noise_amp = 0.035
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbvap"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3yqt6"]
 texture = ExtResource("4_3yqt6")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -29,7 +29,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_mbvap")
+sources/0 = SubResource("TileSetAtlasSource_3yqt6")
 
 [node name="Main" type="Node2D"]
 
@@ -58,7 +58,7 @@ position = Vector2(1079, 534)
 scale = Vector2(0.35, 0.35)
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(959, 607)
+position = Vector2(967, 617)
 
 [node name="Enviroment" parent="." instance=ExtResource("5_3yqt6")]
 position = Vector2(1772, 154)
