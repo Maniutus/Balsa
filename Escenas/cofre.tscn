@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt7k4kqf6lhh5"]
+
+[ext_resource type="Script" uid="uid://rvopx20a6hvm" path="res://scripts/cofre.gd" id="1_lktcw"]
+[ext_resource type="Texture2D" uid="uid://raod1nsum33s" path="res://Assets/Cofre/Cofre_Cerrado.png" id="2_582rr"]
+[ext_resource type="Texture2D" uid="uid://cfjir1shvivww" path="res://Assets/Cofre/Cofre_Abierto.png" id="3_582rr"]
+[ext_resource type="Texture2D" uid="uid://g1frf0qnw05c" path="res://Assets/UI/Inventario cofre.png" id="4_581xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_581xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_582rr")
+}],
+"loop": false,
+"name": &"Abierto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_582rr")
+}],
+"loop": false,
+"name": &"Cerrado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_582rr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_581xp"]
+size = Vector2(38, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lktcw"]
+size = Vector2(44, 39)
+
+[node name="cofre" type="StaticBody2D" groups=["mesas"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_lktcw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.0718945, 0.0771484)
+sprite_frames = SubResource("SpriteFrames_581xp")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_581xp")
+
+[node name="Interact" type="Area2D" parent="." groups=["mesas"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="InteractCollision" type="CollisionShape2D" parent="Interact" groups=["mesas"]]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_lktcw")
+debug_color = Color(0.726248, 0.337024, 0.847154, 0.42)
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="inventario cofre" type="Sprite2D" parent="UI"]
+position = Vector2(553, 546)
+scale = Vector2(0.865723, 0.865723)
+texture = ExtResource("4_581xp")

@@ -33,6 +33,7 @@ folder_colors={
 [global_group]
 
 Jugadores=""
+mesas="Todas las mesas de trabajo"
 
 [input]
 
@@ -67,3 +68,5 @@ E={
 2d_physics/layer_1="Suelo"
 2d_physics/layer_2="Waterdetector"
 2d_physics/layer_3="Jugador"
+2d_physics/layer_4="Coliders"
+2d_physics/layer_5="mesas"

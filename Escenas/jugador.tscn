@@ -1,61 +1,62 @@
-[gd_scene load_steps=36 format=3 uid="uid://dn7eurijy8sqn"]
+[gd_scene load_steps=38 format=3 uid="uid://01dmontnvb8m"]
 
-[ext_resource type="Script" uid="uid://cjwfxrsoupc1t" path="res://Scripts/jugador.gd" id="1_83bx5"]
-[ext_resource type="Texture2D" uid="uid://u08x7gj1o7rv" path="res://Assets/Personaje Caminar/1_entity_000_WALK_000.png" id="2_mb0pc"]
-[ext_resource type="Texture2D" uid="uid://dkwtlq45dnei7" path="res://Assets/Personaje swin/2_entity_000_WALK_000.png" id="2_tg0k3"]
-[ext_resource type="Texture2D" uid="uid://bns25n3f86ypf" path="res://Assets/Barras/Rayofondo.png" id="2_xoi2s"]
-[ext_resource type="Texture2D" uid="uid://bnjbvi4vubikk" path="res://Assets/Barras/RayoMarco.png" id="3_gd8ro"]
-[ext_resource type="Texture2D" uid="uid://bewc6k03o66k" path="res://Assets/Personaje swin/2_entity_000_WALK_001.png" id="3_srao3"]
-[ext_resource type="Texture2D" uid="uid://11rbhivn3isc" path="res://Assets/Personaje Caminar/1_entity_000_WALK_001.png" id="3_wkbbf"]
-[ext_resource type="Texture2D" uid="uid://dbhj0p7x5chep" path="res://Assets/Personaje swin/2_entity_000_WALK_002.png" id="4_40r6v"]
-[ext_resource type="Texture2D" uid="uid://1p3ulrd3t440" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_000.png" id="4_lmxlj"]
-[ext_resource type="Texture2D" uid="uid://rvwg5xu62i2b" path="res://Assets/Barras/Rayobarra.png" id="4_pjt11"]
-[ext_resource type="Texture2D" uid="uid://e7d5b8w2vqla" path="res://Assets/Personaje Caminar/1_entity_000_WALK_002.png" id="4_u4ymj"]
-[ext_resource type="Texture2D" uid="uid://bc246kg06jc0k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_003.png" id="5_3doo3"]
-[ext_resource type="Texture2D" uid="uid://dcudoxgmth0gu" path="res://Assets/Personaje swin/2_entity_000_WALK_003.png" id="5_56xm4"]
-[ext_resource type="Texture2D" uid="uid://cip3r1ys8qig8" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_001.png" id="5_lmw2y"]
-[ext_resource type="Texture2D" uid="uid://c7oynfawn6th3" path="res://Assets/Personaje swin/2_entity_000_WALK_004.png" id="6_ovsq0"]
-[ext_resource type="Texture2D" uid="uid://vyxinf2lnpc6" path="res://Assets/Personaje Caminar/1_entity_000_WALK_004.png" id="6_pjyyr"]
-[ext_resource type="Texture2D" uid="uid://2ns7yf5jjc11" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_002.png" id="6_w07v2"]
-[ext_resource type="Texture2D" uid="uid://f2314nwje4gf" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_003.png" id="7_8ixdv"]
-[ext_resource type="Texture2D" uid="uid://dlx5jq4f3124g" path="res://Assets/Personaje Caminar/1_entity_000_WALK_005.png" id="7_fnc7j"]
-[ext_resource type="Texture2D" uid="uid://b0l4gaarnk6n" path="res://Assets/Personaje swin/2_entity_000_WALK_005.png" id="7_u04cl"]
-[ext_resource type="Texture2D" uid="uid://bhnhetv7lfnxb" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_004.png" id="8_8gr6o"]
-[ext_resource type="Texture2D" uid="uid://c7ec0c8pee5px" path="res://Assets/Personaje swin/2_entity_000_WALK_006.png" id="8_h2lrk"]
-[ext_resource type="Texture2D" uid="uid://dsup2bdmr487k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_006.png" id="8_lkbdx"]
-[ext_resource type="Texture2D" uid="uid://cf8d8cexd6xsy" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_005.png" id="9_fnfqt"]
-[ext_resource type="Texture2D" uid="uid://c63lkji8sx5mi" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_006.png" id="10_umhct"]
-[ext_resource type="Texture2D" uid="uid://c712gi2l3jaus" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_000.png" id="11_2dfxi"]
-[ext_resource type="Texture2D" uid="uid://c5whkdyrs3vrj" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_001.png" id="12_xoi2s"]
-[ext_resource type="Texture2D" uid="uid://rryyufqerna" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_002.png" id="13_gd8ro"]
-[ext_resource type="Texture2D" uid="uid://6x8wa2kxr4ea" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_003.png" id="14_pjt11"]
-[ext_resource type="Texture2D" uid="uid://fkxoc0mo0pi1" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_004.png" id="15_sfvxi"]
-[ext_resource type="Texture2D" uid="uid://hwbm4d20873q" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_005.png" id="16_4gcne"]
-[ext_resource type="Texture2D" uid="uid://cbgx5un3kn75n" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_006.png" id="17_kwvjv"]
+[ext_resource type="Script" uid="uid://dfysms2gmstw5" path="res://Scripts/Jugador.gd" id="1_j1qkx"]
+[ext_resource type="Texture2D" uid="uid://bns25n3f86ypf" path="res://Assets/Barras/Rayofondo.png" id="2_oouul"]
+[ext_resource type="Texture2D" uid="uid://bnjbvi4vubikk" path="res://Assets/Barras/RayoMarco.png" id="3_75osk"]
+[ext_resource type="Texture2D" uid="uid://rvwg5xu62i2b" path="res://Assets/Barras/Rayobarra.png" id="4_2774c"]
+[ext_resource type="Texture2D" uid="uid://1p3ulrd3t440" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_000.png" id="5_71ffx"]
+[ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="5_gd8ro"]
+[ext_resource type="Texture2D" uid="uid://cip3r1ys8qig8" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_001.png" id="6_g38ih"]
+[ext_resource type="Texture2D" uid="uid://2ns7yf5jjc11" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_002.png" id="7_fal36"]
+[ext_resource type="Texture2D" uid="uid://f2314nwje4gf" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_003.png" id="8_k53pn"]
+[ext_resource type="Texture2D" uid="uid://bhnhetv7lfnxb" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_004.png" id="9_uiofw"]
+[ext_resource type="Texture2D" uid="uid://cf8d8cexd6xsy" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_005.png" id="10_yje1p"]
+[ext_resource type="Texture2D" uid="uid://c63lkji8sx5mi" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_006.png" id="11_vlwiv"]
+[ext_resource type="Texture2D" uid="uid://c712gi2l3jaus" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_000.png" id="12_5kt6g"]
+[ext_resource type="Texture2D" uid="uid://c5whkdyrs3vrj" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_001.png" id="13_lsdd8"]
+[ext_resource type="Texture2D" uid="uid://rryyufqerna" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_002.png" id="14_dtmtm"]
+[ext_resource type="Texture2D" uid="uid://6x8wa2kxr4ea" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_003.png" id="15_35rqh"]
+[ext_resource type="Texture2D" uid="uid://fkxoc0mo0pi1" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_004.png" id="16_t4sl8"]
+[ext_resource type="Texture2D" uid="uid://hwbm4d20873q" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_005.png" id="17_xs7xu"]
+[ext_resource type="Texture2D" uid="uid://cbgx5un3kn75n" path="res://Assets/Persanje Idle/2/2_entity_000_IDLE_006.png" id="18_q5qll"]
+[ext_resource type="Texture2D" uid="uid://dkwtlq45dnei7" path="res://Assets/Personaje swin/2_entity_000_WALK_000.png" id="19_fkn3r"]
+[ext_resource type="Texture2D" uid="uid://bewc6k03o66k" path="res://Assets/Personaje swin/2_entity_000_WALK_001.png" id="20_bcw1l"]
+[ext_resource type="Texture2D" uid="uid://dbhj0p7x5chep" path="res://Assets/Personaje swin/2_entity_000_WALK_002.png" id="21_ufa3w"]
+[ext_resource type="Texture2D" uid="uid://dcudoxgmth0gu" path="res://Assets/Personaje swin/2_entity_000_WALK_003.png" id="22_xx7l6"]
+[ext_resource type="Texture2D" uid="uid://c7oynfawn6th3" path="res://Assets/Personaje swin/2_entity_000_WALK_004.png" id="23_6vjie"]
+[ext_resource type="Texture2D" uid="uid://b0l4gaarnk6n" path="res://Assets/Personaje swin/2_entity_000_WALK_005.png" id="24_mwgib"]
+[ext_resource type="Texture2D" uid="uid://c7ec0c8pee5px" path="res://Assets/Personaje swin/2_entity_000_WALK_006.png" id="25_vuxfs"]
+[ext_resource type="Texture2D" uid="uid://11rbhivn3isc" path="res://Assets/Personaje Caminar/1_entity_000_WALK_001.png" id="26_midup"]
+[ext_resource type="Texture2D" uid="uid://u08x7gj1o7rv" path="res://Assets/Personaje Caminar/1_entity_000_WALK_000.png" id="27_wbn7w"]
+[ext_resource type="Texture2D" uid="uid://e7d5b8w2vqla" path="res://Assets/Personaje Caminar/1_entity_000_WALK_002.png" id="28_mkwac"]
+[ext_resource type="Texture2D" uid="uid://bc246kg06jc0k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_003.png" id="29_u5k4c"]
+[ext_resource type="Texture2D" uid="uid://vyxinf2lnpc6" path="res://Assets/Personaje Caminar/1_entity_000_WALK_004.png" id="30_wicvy"]
+[ext_resource type="Texture2D" uid="uid://dlx5jq4f3124g" path="res://Assets/Personaje Caminar/1_entity_000_WALK_005.png" id="31_tdfdx"]
+[ext_resource type="Texture2D" uid="uid://dsup2bdmr487k" path="res://Assets/Personaje Caminar/1_entity_000_WALK_006.png" id="32_4kclk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tg0k3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_lmxlj")
+"texture": ExtResource("5_71ffx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_lmw2y")
+"texture": ExtResource("6_g38ih")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_w07v2")
+"texture": ExtResource("7_fal36")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_8ixdv")
+"texture": ExtResource("8_k53pn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_8gr6o")
+"texture": ExtResource("9_uiofw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_fnfqt")
+"texture": ExtResource("10_yje1p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_umhct")
+"texture": ExtResource("11_vlwiv")
 }],
 "loop": true,
 "name": &"Idle_Land",
@@ -63,25 +64,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_2dfxi")
+"texture": ExtResource("12_5kt6g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_xoi2s")
+"texture": ExtResource("13_lsdd8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_gd8ro")
+"texture": ExtResource("14_dtmtm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_pjt11")
+"texture": ExtResource("15_35rqh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_sfvxi")
+"texture": ExtResource("16_t4sl8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_4gcne")
+"texture": ExtResource("17_xs7xu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_kwvjv")
+"texture": ExtResource("18_q5qll")
 }],
 "loop": true,
 "name": &"Idle_Swim",
@@ -89,25 +90,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_tg0k3")
+"texture": ExtResource("19_fkn3r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_srao3")
+"texture": ExtResource("20_bcw1l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_40r6v")
+"texture": ExtResource("21_ufa3w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_56xm4")
+"texture": ExtResource("22_xx7l6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ovsq0")
+"texture": ExtResource("23_6vjie")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_u04cl")
+"texture": ExtResource("24_mwgib")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_h2lrk")
+"texture": ExtResource("25_vuxfs")
 }],
 "loop": true,
 "name": &"Swim",
@@ -115,25 +116,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wkbbf")
+"texture": ExtResource("26_midup")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_mb0pc")
+"texture": ExtResource("27_wbn7w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_u4ymj")
+"texture": ExtResource("28_mkwac")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_3doo3")
+"texture": ExtResource("29_u5k4c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_pjyyr")
+"texture": ExtResource("30_wicvy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_fnc7j")
+"texture": ExtResource("31_tdfdx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_lkbdx")
+"texture": ExtResource("32_4kclk")
 }],
 "loop": true,
 "name": &"Walk",
@@ -141,15 +142,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56xm4"]
-size = Vector2(411.45, 691.406)
+size = Vector2(84.8349, 212.087)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40r6v"]
-size = Vector2(36, 19)
+size = Vector2(14, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1qkx"]
+size = Vector2(45.5, 67.5)
 
 [node name="Jugador" type="CharacterBody2D" groups=["Jugadores"]]
 collision_layer = 4
-collision_mask = 8
-script = ExtResource("1_83bx5")
+collision_mask = 24
+script = ExtResource("1_j1qkx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -163,18 +167,22 @@ max_value = 1.0
 step = 0.0
 value = 1.0
 fill_mode = 3
-texture_under = ExtResource("2_xoi2s")
-texture_over = ExtResource("3_gd8ro")
-texture_progress = ExtResource("4_pjt11")
+texture_under = ExtResource("2_oouul")
+texture_over = ExtResource("3_75osk")
+texture_progress = ExtResource("4_2774c")
+
+[node name="Enviroment" parent="UI" instance=ExtResource("5_gd8ro")]
+position = Vector2(1737, 201)
+scale = Vector2(0.215, 0.215)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(40.0001, -27.1954)
-scale = Vector2(0.235752, 0.235752)
+position = Vector2(12, -9.99999)
+scale = Vector2(0.0697744, 0.0697744)
 sprite_frames = SubResource("SpriteFrames_tg0k3")
-animation = &"Walk"
+animation = &"Idle_Land"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 2.90573e-07)
 scale = Vector2(0.235752, 0.235752)
 shape = SubResource("RectangleShape2D_56xm4")
 
@@ -182,6 +190,21 @@ shape = SubResource("RectangleShape2D_56xm4")
 position = Vector2(2, 73)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Waterdetector"]
-position = Vector2(-15, 16)
+[node name="CollisionShapeWater2D" type="CollisionShape2D" parent="Waterdetector"]
+position = Vector2(-7, -49)
 shape = SubResource("RectangleShape2D_40r6v")
+
+[node name="Mesadetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShapemesa" type="CollisionShape2D" parent="Mesadetector"]
+position = Vector2(-2.75, -1.75)
+shape = SubResource("RectangleShape2D_j1qkx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[connection signal="area_entered" from="Mesadetector" to="." method="_on_mesadetector_area_entered"]
+[connection signal="area_exited" from="Mesadetector" to="." method="_on_mesadetector_area_exited"]
