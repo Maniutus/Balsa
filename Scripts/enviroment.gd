@@ -1,17 +1,21 @@
 extends Node2D
 
+@onready var barra_velocidad_viento  = $"UI/Sprites/velocidad viento/velocidad viento barra"
+var velocidad_viento_n = 10
+
 #Variables Tiempo
-@export var min_dia = 5
-var ciclo_dia_noche = min_dia
+@export var seg_dia :float = 10
+var ciclo_dia_noche: float = seg_dia 
 var dia:bool = true
 var nombre_dia = "Es de Dia"
+var contador_dias: int = 0
 
 #Variables Clima : [viento minimo, viento max, altura de olas, luvia:bool ]
 var dic_climas = {
-	"depejado" : [0, 50 ], 
-	 "tormenta" : [80, 150],
-	"lluvioso" : [30, 100],
-	"niebla" : [0, 20]
+	"depejado" : [0, 30 ], 
+	 "tormenta" : [80, 100],
+	"lluvioso" : [30, 80],
+	"niebla" : [0, 5]
 }
 
 
@@ -29,6 +33,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	cambio_ciclo_dia_noche(delta)
 	animacion_sprites(delta)
+	_animate_velocidad_viento_bar(delta)
 
 func cambio_ciclo_dia_noche(delta):
 	
@@ -38,14 +43,15 @@ func cambio_ciclo_dia_noche(delta):
 		#print(ciclo_dia_noche)
 		
 	else: 
-		ciclo_dia_noche = min_dia
+		ciclo_dia_noche = seg_dia
 		dia = !dia
 		pool_climas()
 		direccion_viento() 
 		velocidad_viento()
 		if dia:
+			contador_dias = contador_dias + 1
 			nombre_dia = "Es de Dia"
-			print(nombre_dia)
+			print(nombre_dia, " Dia: ", contador_dias)
 		else:
 			nombre_dia = "Es de Noche"
 			print(nombre_dia)
@@ -53,12 +59,12 @@ func cambio_ciclo_dia_noche(delta):
 func animacion_sprites(delta):
 	
 	#DiayNoche
-	$Dia_Noche.rotation += (PI * 2) / (2 * min_dia) * delta # Gira el sprite del disco
+	$UI/Sprites/Disco.rotation += (PI * 2) / (2 * seg_dia) * delta # Gira el sprite del disco
 	
 	#Brujula
 	var vel_giro = 2.0
 	var dir_viento_rad = deg_to_rad(dir_viento)
-	$Viento.rotation = lerp_angle($Viento.rotation, dir_viento_rad, vel_giro * delta )
+	$UI/Sprites/Viento.rotation = lerp_angle($UI/Sprites/Viento.rotation, dir_viento_rad, vel_giro * delta )
 
 
 
@@ -78,10 +84,10 @@ func velocidad_viento():
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var velocidad_viento = rng.randi_range(viento_min, viento_max)
+	velocidad_viento_n = rng.randi_range(viento_min, viento_max)
 	#print("EL viento_min es: ", viento_min)
 	#print("EL viento_max es: ", viento_max)
-	print("La velocidad del viento es: ", velocidad_viento)
+	print("La velocidad del viento es: ", velocidad_viento_n)
 	
 func direccion_viento():
 	var rango_max = 150
@@ -95,6 +101,9 @@ func direccion_viento():
 	dir_viento = dir_viento_raw 
 	print("Direccion Viento: ", dir_viento, " grados")
 	
+func _animate_velocidad_viento_bar(delta):
+	barra_velocidad_viento.value = float(velocidad_viento_n)/100 
+
 	
 func cambio_dir_viento():
 	pass

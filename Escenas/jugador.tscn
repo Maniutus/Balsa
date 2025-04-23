@@ -155,6 +155,9 @@ collision_layer = 4
 collision_mask = 24
 script = ExtResource("1_j1qkx")
 
+[node name="Enviroment" parent="." instance=ExtResource("5_gd8ro")]
+position = Vector2(749, -340)
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="StaminaBar" type="TextureProgressBar" parent="UI"]
@@ -170,10 +173,6 @@ fill_mode = 3
 texture_under = ExtResource("2_oouul")
 texture_over = ExtResource("3_75osk")
 texture_progress = ExtResource("4_2774c")
-
-[node name="Enviroment" parent="UI" instance=ExtResource("5_gd8ro")]
-position = Vector2(1737, 201)
-scale = Vector2(0.215, 0.215)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -9.99999)

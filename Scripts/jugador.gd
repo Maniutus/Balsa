@@ -33,11 +33,13 @@ const SUELO_MASK = 1 << 0
 @onready var dic_mesas = {
 	"vela" : "vela_script_path", 
 	"cofre" : "cofre_script_path",
+	"workshop": "workshop_script_path",
 }
 
 #preloads
 const vela_script_path = preload("res://Scripts/vela.gd")
 const cofre_script_path = preload("res://Scripts/cofre.gd")
+#const workshop_script_path = preload()
 
 #var acceso a mesas
 var mesa = null
@@ -61,19 +63,19 @@ func _ready():
 	anim.play("Idle_Land")
 
 #— Señales de WaterDetector —
-func _on_Waterdetector_body_entered(body):
+func _on_Waterdetector_body_entered(_body):
 		state = State.ON_LAND
 		print("Sobre suelo")
 		print(state)
 
-func _on_Waterdetector_body_exited(body):
+func _on_Waterdetector_body_exited(_body):
 		state = State.IN_WATER
 		print("Sobre agua")
 
 func _process(delta):
 	time_accum += delta
 	_animate_stamina_bar(delta)
-	interaction(delta)
+	interaction()
 
 func _physics_process(delta):
 	
@@ -168,7 +170,7 @@ func _on_mesadetector_area_exited(area: Area2D) -> void:
 		contacto= CONTACTO.OFF
 		
 #Codigo de Interaccion
-func interaction(delta):
+func interaction():
 	if contacto == CONTACTO.ON and Input.is_action_just_pressed("E"):
 		action = !action
 		if action  :
