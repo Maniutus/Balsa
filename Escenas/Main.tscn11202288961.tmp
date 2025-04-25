@@ -69,8 +69,7 @@ position = Vector2(1055, 664)
 position = Vector2(926, 663)
 
 [node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
-z_index = 1
-position = Vector2(975, 581)
+position = Vector2(950, 581)
 
 [node name="SpawnPoint" type="Node2D" parent="Barca"]
 position = Vector2(990, 576)

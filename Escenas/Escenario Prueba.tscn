@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://p467ksith34k"]
+[gd_scene load_steps=8 format=3 uid="uid://p467ksith34k"]
 
 [ext_resource type="Texture2D" uid="uid://ds3ttg5frkt7p" path="res://Assets/Tiles/Balsa/Suelo/Suelo1.png" id="1_1bqit"]
 [ext_resource type="Texture2D" uid="uid://ceh7dpkiifnlt" path="res://Assets/Tiles/Vela/2436359043_preview_XP_to_MV_030-Ship01a_PixelScaled.png" id="2_2moag"]
-[ext_resource type="PackedScene" uid="uid://01dmontnvb8m" path="res://Escenas/jugador.tscn" id="3_sbqx2"]
 [ext_resource type="PackedScene" uid="uid://b63blfyfhb0fi" path="res://Escenas/vela.tscn" id="4_hub85"]
 [ext_resource type="PackedScene" uid="uid://bt7k4kqf6lhh5" path="res://Escenas/cofre.tscn" id="5_1bqit"]
 
@@ -148,6 +147,3 @@ position = Vector2(986, 546)
 
 [node name="cofre" parent="." instance=ExtResource("5_1bqit")]
 position = Vector2(1052, 654)
-
-[node name="Jugador" parent="." instance=ExtResource("3_sbqx2")]
-position = Vector2(927, 660)

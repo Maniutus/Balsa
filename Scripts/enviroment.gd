@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var barra_velocidad_viento  = $"UI/Sprites/velocidad viento/velocidad viento barra"
-var velocidad_viento_n = 10
+
 
 #Variables Tiempo
 @export var seg_dia :float = 10
@@ -18,9 +18,10 @@ var dic_climas = {
 	"niebla" : [0, 5]
 }
 
-
-var clima = dic_climas.keys()[0]
+var velocidad_viento_n = 10
 @export var dir_viento = 0
+var clima = dic_climas.keys()[0]
+
 
 
 func _ready() -> void:
