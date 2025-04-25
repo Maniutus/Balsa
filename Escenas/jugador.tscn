@@ -1,11 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://01dmontnvb8m"]
+[gd_scene load_steps=37 format=3 uid="uid://01dmontnvb8m"]
 
-[ext_resource type="Script" uid="uid://dfysms2gmstw5" path="res://Scripts/Jugador.gd" id="1_j1qkx"]
+[ext_resource type="Script" uid="uid://dfysms2gmstw5" path="res://Scripts/jugador.gd" id="1_j1qkx"]
 [ext_resource type="Texture2D" uid="uid://bns25n3f86ypf" path="res://Assets/Barras/Rayofondo.png" id="2_oouul"]
 [ext_resource type="Texture2D" uid="uid://bnjbvi4vubikk" path="res://Assets/Barras/RayoMarco.png" id="3_75osk"]
 [ext_resource type="Texture2D" uid="uid://rvwg5xu62i2b" path="res://Assets/Barras/Rayobarra.png" id="4_2774c"]
 [ext_resource type="Texture2D" uid="uid://1p3ulrd3t440" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_000.png" id="5_71ffx"]
-[ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="5_gd8ro"]
 [ext_resource type="Texture2D" uid="uid://cip3r1ys8qig8" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_001.png" id="6_g38ih"]
 [ext_resource type="Texture2D" uid="uid://2ns7yf5jjc11" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_002.png" id="7_fal36"]
 [ext_resource type="Texture2D" uid="uid://f2314nwje4gf" path="res://Assets/Persanje Idle/1/1_entity_000_IDLE_003.png" id="8_k53pn"]
@@ -154,9 +153,6 @@ size = Vector2(45.5, 67.5)
 collision_layer = 4
 collision_mask = 24
 script = ExtResource("1_j1qkx")
-
-[node name="Enviroment" parent="." instance=ExtResource("5_gd8ro")]
-position = Vector2(749, -340)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

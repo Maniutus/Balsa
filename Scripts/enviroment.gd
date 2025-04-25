@@ -33,7 +33,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	cambio_ciclo_dia_noche(delta)
 	animacion_sprites(delta)
-	_animate_velocidad_viento_bar(delta)
+	_animate_velocidad_viento_bar()
 
 func cambio_ciclo_dia_noche(delta):
 	
@@ -101,7 +101,7 @@ func direccion_viento():
 	dir_viento = dir_viento_raw 
 	print("Direccion Viento: ", dir_viento, " grados")
 	
-func _animate_velocidad_viento_bar(delta):
+func _animate_velocidad_viento_bar():
 	barra_velocidad_viento.value = float(velocidad_viento_n)/100 
 
 	

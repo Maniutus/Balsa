@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ujys0qes06yt"]
+[gd_scene load_steps=10 format=4 uid="uid://ujys0qes06yt"]
 
+[ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="2_mbvap"]
 [ext_resource type="Shader" uid="uid://bq2jxfpjq0fgh" path="res://Shaders/Mar.gdshader" id="2_sem21"]
 [ext_resource type="Texture2D" uid="uid://ds3ttg5frkt7p" path="res://Assets/Tiles/Balsa/Suelo/Suelo1.png" id="4_3yqt6"]
 [ext_resource type="PackedScene" uid="uid://b63blfyfhb0fi" path="res://Escenas/vela.tscn" id="4_mbvap"]
@@ -41,26 +42,31 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(960, 540)
 metadata/_edit_lock_ = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Enviroment" parent="UI" instance=ExtResource("2_mbvap")]
+
+[node name="Barca" type="Node2D" parent="."]
+
+[node name="Tile Barca" type="TileMapLayer" parent="Barca"]
+use_parent_material = true
 position = Vector2(22, 8)
 scale = Vector2(0.996544, 0.992749)
+tile_map_data = PackedByteArray("AAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAoAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAARAAoAAAAAAAAAAAARAAkAAAAAAAAAAAARAAgAAAAAAAAAAAARAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAAPAAQAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAAPAAwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_r8q0l")
-collision_animatable = true
-format = 2
-layer_0/name = "Layer1"
-layer_0/tile_data = PackedInt32Array(655374, 0, 0, 655375, 0, 0, 589839, 0, 0, 589838, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 589840, 0, 0, 655376, 0, 0, 458765, 0, 0, 524301, 0, 0, 589837, 0, 0, 655373, 0, 0, 655377, 0, 0, 589841, 0, 0, 524305, 0, 0, 458769, 0, 0, 458768, 0, 0, 458767, 0, 0, 458766, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 262159, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 786447, 0, 0)
+use_kinematic_bodies = true
 
-[node name="cofre" parent="." instance=ExtResource("5_r8q0l")]
+[node name="cofre" parent="Barca" instance=ExtResource("5_r8q0l")]
 position = Vector2(1074, 664)
 
-[node name="cofre2" parent="." instance=ExtResource("5_r8q0l")]
+[node name="cofre2" parent="Barca" instance=ExtResource("5_r8q0l")]
 position = Vector2(947, 664)
 
-[node name="Jugador" parent="." instance=ExtResource("4_qpgdo")]
+[node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
 position = Vector2(1010, 585)
 
-[node name="SpawnPoint" type="Node2D" parent="."]
+[node name="SpawnPoint" type="Node2D" parent="Barca"]
 position = Vector2(1010, 579)
 
-[node name="vela" parent="." instance=ExtResource("4_mbvap")]
+[node name="vela" parent="Barca" instance=ExtResource("4_mbvap")]
 position = Vector2(1009, 486)
