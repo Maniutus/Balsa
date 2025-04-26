@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bt7k4kqf6lhh5"]
 
-[ext_resource type="Script" uid="uid://rvopx20a6hvm" path="res://scripts/cofre.gd" id="1_lktcw"]
+[ext_resource type="Script" uid="uid://rvopx20a6hvm" path="res://Scripts/cofre.gd" id="1_lktcw"]
 [ext_resource type="Texture2D" uid="uid://raod1nsum33s" path="res://Assets/Cofre/Cofre_Cerrado.png" id="2_582rr"]
 [ext_resource type="Texture2D" uid="uid://cfjir1shvivww" path="res://Assets/Cofre/Cofre_Abierto.png" id="3_582rr"]
 [ext_resource type="Texture2D" uid="uid://g1frf0qnw05c" path="res://Assets/UI/Inventario cofre.png" id="4_581xp"]
@@ -44,6 +44,7 @@ collision_mask = 0
 script = ExtResource("1_lktcw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -2)
 scale = Vector2(0.0718945, 0.0771484)
 sprite_frames = SubResource("SpriteFrames_581xp")

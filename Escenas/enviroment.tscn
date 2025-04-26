@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjgwfg1eavi3g"]
+[gd_scene load_steps=10 format=3 uid="uid://cjgwfg1eavi3g"]
 
 [ext_resource type="Script" uid="uid://d4b7m2sfltt41" path="res://Scripts/enviroment.gd" id="1_gcjfx"]
 [ext_resource type="Texture2D" uid="uid://cah5kkuvc70gj" path="res://Assets/Enviroment/Viento/pngfind.com-seta-png-1358028.png" id="2_vyo3i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://do3mnyronghic" path="res://Assets/Dia_Noche/daynightcycle-gradient-texture.tres" id="5_kx73u"]
 [ext_resource type="Texture2D" uid="uid://bayi77qhpy76u" path="res://Assets/Enviroment/Disco Hora/Sprite.png" id="5_rewxq"]
 [ext_resource type="Texture2D" uid="uid://ca55pbnhpmv8a" path="res://Assets/Enviroment/Disco Hora/Barra.png" id="6_pf0qm"]
+[ext_resource type="Texture2D" uid="uid://cfhltsfmiehhe" path="res://Assets/Enviroment/Contador dias/Contador_sprite.png" id="7_rewxq"]
 
 [node name="Enviroment" type="Node2D"]
 position = Vector2(-7, -6)
@@ -25,7 +26,12 @@ position = Vector2(0, 1.52588e-05)
 
 [node name="Flecha" type="Sprite2D" parent="UI/Sprites/Viento"]
 position = Vector2(0, -360)
-scale = Vector2(0.123484, 0.181162)
+scale = Vector2(0.764039, 0.416084)
+texture = ExtResource("2_vyo3i")
+
+[node name="Flecha2" type="Sprite2D" parent="UI/Sprites/Viento"]
+position = Vector2(0, 342.222)
+scale = Vector2(0.764039, 0.416084)
 texture = ExtResource("2_vyo3i")
 
 [node name="Disco" type="Node2D" parent="UI/Sprites"]
@@ -53,6 +59,22 @@ radial_fill_degrees = 180.0
 texture_under = ExtResource("4_s2fqp")
 texture_over = ExtResource("5_rewxq")
 texture_progress = ExtResource("6_pf0qm")
+
+[node name="Contador" type="Node2D" parent="UI/Sprites"]
+
+[node name="contador_sprite" type="Sprite2D" parent="UI/Sprites/Contador"]
+position = Vector2(0, 44.4444)
+scale = Vector2(0.227111, 0.227111)
+texture = ExtResource("7_rewxq")
+
+[node name="Label" type="Label" parent="UI/Sprites/Contador"]
+offset_left = -75.5556
+offset_top = -26.6667
+offset_right = -35.5556
+offset_bottom = -3.66667
+scale = Vector2(5.49488, 5.86063)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "000"
 
 [node name="dia_noche" type="CanvasModulate" parent="."]
 script = ExtResource("4_dlfo4")

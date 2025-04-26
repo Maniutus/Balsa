@@ -26,22 +26,26 @@ var stamina := STAMINA_MAX
 const SUELO_MASK = 1 << 0
 
 # — Referencias
-@onready var water_detector = $Waterdetector
-@onready var stamina_bar     = $UI/StaminaBar
-@onready var anim            = $AnimatedSprite2D
-@onready var nodo_barca  = get_node("/root/Main/NodoBarca")
-@onready var nodo_mundo = get_parent().get_parent() 
+
+@onready var stamina_bar = $UI/StaminaBar
+@onready var anim = $AnimatedSprite2D
+@onready var camara = $Camera2D
+@onready var nodo_main = get_tree().get_root().get_node("Main")
+@onready var nodo_barca  = nodo_main.get_node("Barca")
+@onready var nodo_tile_barca: TileMapLayer = nodo_barca.get_node("Tile Barca") as TileMapLayer
+ 
 
 #Diccionario Mesas
 @onready var dic_mesas = {
 	"vela" : "vela_script_path", 
 	"cofre" : "cofre_script_path",
-	"workshop": "workshop_script_path",
+	"antorcha": "antorcha_script_path",
 }
 
 #preloads
 const vela_script_path = preload("res://Scripts/vela.gd")
 const cofre_script_path = preload("res://Scripts/cofre.gd")
+const antorcha_script_path = preload("res://Scripts/antorcha.gd")
 #const workshop_script_path = preload()
 
 #var acceso a mesas
@@ -52,35 +56,25 @@ var contacto = CONTACTO.OFF
 var action = false
 
 func _ready():
-	print("Estado inicial del jugador:", state)
-	# Conectar señales del WaterDetector
-	water_detector.body_entered.connect(_on_Waterdetector_body_entered)
-	water_detector.body_exited.connect(_on_Waterdetector_body_exited)
-	# Preparar proceso
+
 	set_process(true)
 	set_physics_process(true)
-	# Inicializar barra de stamina
+	
 	stamina_bar.min_value = 0
 	stamina_bar.max_value = 100
 	stamina_bar.value     = 100
-	# Inicializar animación
+	
 	anim.play("Idle_Land")
 	
-	print(nodo_barca,"///",nodo_mundo)
 
-#— Señales de WaterDetector —
-func _on_Waterdetector_body_entered(_body):
-		state = State.ON_LAND
-		print("Sobre suelo")
 
-func _on_Waterdetector_body_exited(_body):
-		state = State.IN_WATER
-		print("Sobre agua")
 
 func _process(delta):
 	time_accum += delta
 	_animate_stamina_bar(delta)
 	interaction()
+	
+	
 	
 
 func _physics_process(delta):
@@ -110,24 +104,24 @@ func _physics_process(delta):
 	if anim.animation != desired_anim:
 		anim.play(desired_anim)
 
-	#Movimiento y stamina
+	_transicion_barco_agua_check()
 	match state:
 		State.ON_LAND:
 			velocity = dir * WALK_SPEED
 			_recover_stamina(delta)
-			estado_padre_jugador()
+			
 			
 		State.IN_WATER:
 			velocity = dir * SWIM_SPEED
 			_drain_stamina(delta)
-			estado_padre_jugador()
+			
 			
 		State.EN_MESA:
-			velocity = dir * MESA_SPEED
+			velocity = dir * 0
 			_recover_stamina(delta)
-			estado_padre_jugador()
 			
-
+			
+	#_transicion_barco_agua_check()
 	move_and_slide()
 
 #— Drena stamina real
@@ -156,11 +150,14 @@ func _animate_stamina_bar(delta):
 
 func _drown():
 	print("¡Te has ahogado!")
-	global_position = get_parent().get_node("../Barca/SpawnPoint").global_position
-	stamina = STAMINA_MAX
 	state = State.ON_LAND
+	get_parent().remove_child(self)
+	nodo_barca.add_child(self)
+	global_position = nodo_barca.get_node("SpawnPoint").global_position
+	stamina = STAMINA_MAX
 	stamina_bar.value    = stamina_bar.max_value
 	stamina_bar.modulate = Color(1,1,1)
+	
 	
 
 
@@ -183,7 +180,9 @@ func _on_mesadetector_area_exited(area: Area2D) -> void:
 		
 #Codigo de Interaccion
 func interaction():
-
+	if state == State.IN_WATER:
+		return
+		
 	if contacto == CONTACTO.ON and Input.is_action_just_pressed("E"):
 		action = !action
 		if action  :
@@ -196,28 +195,38 @@ func interaction():
 			#m_player = MOVIMIENTO_PLAYER.ON
 			mesa.desuso() 
 			print (mesa_nombre, "Desactivada")
-			
-
-var new_state = state
-func estado_padre_jugador(): #funcion que hace que el jugador se desconecte de la barca cuando se baja.
-	"""
-	if new_state == state:
-		return
 		
-	else:
-		var global_pos = global_position
-		get_parent().remove_child(self)
+			
+			
+func _transicion_barco_agua_check():
 	
-		if state == State.ON_LAND:
-			nodo_barca.add_child(self,2)
-			new_state = state
-			print("Pasando de LAND a WATER")
-		elif state == State.IN_WATER:
-			nodo_mundo.add_child(self)
-			new_state = state
-			print("Pasando de WATER a LAND")
-			
-		global_position = global_pos
+	if state == State.EN_MESA:
+		return
+
+	var local_pos: Vector2 = nodo_tile_barca.to_local(global_position)
+	var cell: Vector2i = nodo_tile_barca.local_to_map(local_pos)
+	var tile_id: int   = nodo_tile_barca.get_cell_source_id(cell)
+	var en_barco: bool  = tile_id >= 0
+
+	if en_barco and state != State.ON_LAND:
+		state = State.ON_LAND
+		call_deferred("cambio_padres", nodo_barca)
+		print("Subido a la barca")
+	elif not en_barco and state != State.IN_WATER:
+		state = State.IN_WATER
+		call_deferred("cambio_padres", nodo_main)
+		print("Caído al agua")
+
+
+
+func cambio_padres (new_parent: Node):
+	#if get_parent() == new_parent:
+	#	return
+	var posicion_vieja = global_transform
+	get_parent().remove_child(self)
+	new_parent.add_child(self)
+	new_parent.move_child(self, 2)
+	global_transform = posicion_vieja
+
+
 		
-		
-	"""

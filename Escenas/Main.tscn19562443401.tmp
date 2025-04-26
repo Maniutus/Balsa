@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ujys0qes06yt"]
+[gd_scene load_steps=12 format=4 uid="uid://ujys0qes06yt"]
 
 [ext_resource type="Texture2D" uid="uid://d16pgocrls4bx" path="res://Assets/Cuadricula.png" id="2_bgy44"]
 [ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="2_mbvap"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b63blfyfhb0fi" path="res://Escenas/vela.tscn" id="4_mbvap"]
 [ext_resource type="PackedScene" uid="uid://01dmontnvb8m" path="res://Escenas/jugador.tscn" id="4_qpgdo"]
 [ext_resource type="PackedScene" uid="uid://bt7k4kqf6lhh5" path="res://Escenas/cofre.tscn" id="5_r8q0l"]
-[ext_resource type="PackedScene" uid="uid://by7i15is7e85i" path="res://Escenas/antorcha.tscn" id="9_a5a2i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5xpj"]
 shader = ExtResource("2_sem21")
@@ -46,7 +45,6 @@ pivot_offset = Vector2(960, 540)
 metadata/_edit_lock_ = true
 
 [node name="pruebamovimientobarca" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(982, 538.5)
 scale = Vector2(10.2077, 5.61929)
 texture = ExtResource("2_bgy44")
@@ -66,27 +64,18 @@ tile_map_data = PackedByteArray("AAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAkAAAAAAAA
 tile_set = SubResource("TileSet_r8q0l")
 use_kinematic_bodies = true
 
-[node name="SpawnPoint" type="Node2D" parent="Barca"]
-visible = false
-position = Vector2(990, 576)
+[node name="cofre" parent="Barca" instance=ExtResource("5_r8q0l")]
+position = Vector2(1055, 664)
 
-[node name="Encima" type="Node2D" parent="Barca"]
-z_index = 2
-
-[node name="vela" parent="Barca/Encima" instance=ExtResource("4_mbvap")]
-position = Vector2(990, 478)
+[node name="cofre2" parent="Barca" instance=ExtResource("5_r8q0l")]
+position = Vector2(926, 663)
 
 [node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
 position = Vector2(975, 581)
 
-[node name="Debajo" type="Node2D" parent="Barca"]
-z_index = 1
+[node name="SpawnPoint" type="Node2D" parent="Barca"]
+visible = false
+position = Vector2(990, 576)
 
-[node name="Antorcha" parent="Barca/Debajo" instance=ExtResource("9_a5a2i")]
-position = Vector2(886, 558)
-
-[node name="cofre" parent="Barca/Debajo" instance=ExtResource("5_r8q0l")]
-position = Vector2(1055, 664)
-
-[node name="cofre2" parent="Barca/Debajo" instance=ExtResource("5_r8q0l")]
-position = Vector2(926, 663)
+[node name="vela" parent="Barca" instance=ExtResource("4_mbvap")]
+position = Vector2(990, 478)

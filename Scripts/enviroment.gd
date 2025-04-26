@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var barra_velocidad_viento  = $"UI/Sprites/velocidad viento/velocidad viento barra"
+@onready var contador  = $"UI/Sprites/Contador/Label"
 
 
 #Variables Tiempo
@@ -51,6 +52,7 @@ func cambio_ciclo_dia_noche(delta):
 		velocidad_viento()
 		if dia:
 			contador_dias = contador_dias + 1
+			contador.text = "%03d" % contador_dias
 			nombre_dia = "Es de Dia"
 			print(nombre_dia, " Dia: ", contador_dias)
 		else:

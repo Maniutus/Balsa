@@ -1,0 +1,177 @@
+[gd_scene load_steps=22 format=3 uid="uid://by7i15is7e85i"]
+
+[ext_resource type="Texture2D" uid="uid://cr5bb0i63pxdv" path="res://Assets/Antorcha/Antorcha sprite.png" id="1_2jkjb"]
+[ext_resource type="Script" uid="uid://laetkysl02c5" path="res://Scripts/antorcha.gd" id="1_e3ut8"]
+[ext_resource type="Script" uid="uid://vnrljc8lck8y" path="res://Scripts/luz_antorcha.gd" id="3_n7ehy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jkjb"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(390, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ut8"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(585, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ehy"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(780, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmgp2"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(975, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5bot"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(1170, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_038fr"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(0, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66lam"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(195, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai62n"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(390, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6xve"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(585, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5177"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(780, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j85ny"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(975, 525, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuind"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(195, 0, 147, 486)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrbrx"]
+atlas = ExtResource("1_2jkjb")
+region = Rect2(0, 0, 147, 486)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6vvt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jkjb")
+}],
+"loop": true,
+"name": &"Candescente",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3ut8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ehy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmgp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5bot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_038fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66lam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai62n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6xve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5177")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j85ny")
+}],
+"loop": true,
+"name": &"Encendida",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuind")
+}],
+"loop": true,
+"name": &"Llena",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrbrx")
+}],
+"loop": true,
+"name": &"Vacia",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jkjb"]
+size = Vector2(4, 21)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jkjb"]
+radius = 7.0
+height = 48.0
+
+[sub_resource type="Gradient" id="Gradient_n7ehy"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3ut8"]
+gradient = SubResource("Gradient_n7ehy")
+fill = 1
+fill_from = Vector2(0.522936, 0.518349)
+fill_to = Vector2(0.756881, 0.146789)
+
+[node name="Antorcha" type="StaticBody2D" groups=["mesas"]]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_e3ut8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_e6vvt")
+animation = &"Encendida"
+frame = 6
+frame_progress = 0.158757
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_2jkjb")
+
+[node name="Interact" type="Area2D" parent="." groups=["mesas"]]
+z_index = 1
+collision_layer = 16
+collision_mask = 0
+
+[node name="InteractCollision" type="CollisionShape2D" parent="Interact" groups=["mesas"]]
+z_index = 1
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_2jkjb")
+
+[node name="Luz Antorcha" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(0, -22)
+color = Color(0.980392, 0.854902, 0.678431, 1)
+energy = 1.3
+texture = SubResource("GradientTexture2D_e3ut8")
+texture_scale = 5.0
+script = ExtResource("3_n7ehy")
+min_energy = 1.0
+max_energy = 1.5
+flicker_speed = 2.0
+min_texture_scale = 2.167
+max_texture_scale = 4.254

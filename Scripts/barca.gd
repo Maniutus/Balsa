@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var enviroment_node = get_node("../UI/Enviroment")
+@onready var enviroment_node = get_parent().get_node("Enviroment")
 @onready var map_barca       = get_node("Tile Barca") 
 
 var referencia_tiles: float = 9				#tiles iniciales
