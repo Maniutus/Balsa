@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="2_mbvap"]
 [ext_resource type="Shader" uid="uid://bq2jxfpjq0fgh" path="res://Shaders/Mar.gdshader" id="2_sem21"]
 [ext_resource type="Script" uid="uid://ceyykimgqr0r6" path="res://Scripts/barca.gd" id="3_r8q0l"]
-[ext_resource type="Script" uid="uid://b0x6wvvjh2ymj" path="res://Scripts/DebugConsole.gd" id="4_3ihj5"]
+[ext_resource type="Script" uid="uid://b0x6wvvjh2ymj" path="res://Scripts/DebugConsoleSingelton.gd" id="4_3ihj5"]
 [ext_resource type="Texture2D" uid="uid://ds3ttg5frkt7p" path="res://Assets/Tiles/Balsa/Suelo/Suelo1.png" id="4_3yqt6"]
 [ext_resource type="PackedScene" uid="uid://b63blfyfhb0fi" path="res://Escenas/vela.tscn" id="4_mbvap"]
 [ext_resource type="PackedScene" uid="uid://01dmontnvb8m" path="res://Escenas/jugador.tscn" id="4_qpgdo"]
@@ -53,6 +53,8 @@ scale = Vector2(10.2077, 5.61929)
 texture = ExtResource("2_bgy44")
 
 [node name="Enviroment" parent="." instance=ExtResource("2_mbvap")]
+seg_dia = null
+dir_viento = null
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -62,7 +64,6 @@ offset_top = 86.0
 offset_right = 451.0
 offset_bottom = 392.0
 script = ExtResource("4_3ihj5")
-max_lines = null
 
 [node name="Barca" type="CharacterBody2D" parent="."]
 disable_mode = 2
@@ -83,7 +84,7 @@ position = Vector2(990, 576)
 z_index = 2
 
 [node name="vela" parent="Barca/Encima" instance=ExtResource("4_mbvap")]
-position = Vector2(990, 446)
+position = Vector2(990, 478)
 
 [node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
 position = Vector2(975, 581)

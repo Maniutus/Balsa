@@ -1,30 +1,30 @@
 [gd_scene load_steps=7 format=3 uid="uid://b63blfyfhb0fi"]
 
-[ext_resource type="Texture2D" uid="uid://dbdyrcnvkbxe" path="res://Assets/Velas/vela_0.png" id="2_0wrfc"]
 [ext_resource type="Script" uid="uid://c2vna6t6ih6am" path="res://Scripts/vela.gd" id="3_0wrfc"]
 [ext_resource type="Texture2D" uid="uid://c6vvfmqbfx23w" path="res://Assets/UI/Mastil.png" id="3_fvwu0"]
 [ext_resource type="Texture2D" uid="uid://paiat275cfwd" path="res://Assets/UI/Mastilfondo.png" id="3_i4fna"]
+[ext_resource type="Texture2D" uid="uid://dnqtpiy1hakxr" path="res://Assets/Velas/VelaPH.png" id="3_jsnec"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wrfc"]
-radius = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yop2u"]
+size = Vector2(10, 36)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u50kn"]
-radius = 32.0
-height = 64.0
+radius = 20.0
+height = 54.0
 
 [node name="vela" type="StaticBody2D" groups=["mesas"]]
 z_index = 2
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("3_0wrfc")
+rotate_speed = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
-rotation = -3.14159
-texture = ExtResource("2_0wrfc")
+position = Vector2(-1, -12)
+texture = ExtResource("3_jsnec")
 
 [node name="Mastil" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_0wrfc")
+shape = SubResource("RectangleShape2D_yop2u")
 
 [node name="Interact" type="Area2D" parent="." groups=["mesas"]]
 collision_layer = 16
@@ -38,12 +38,12 @@ debug_color = Color(0.726248, 0.337024, 0.847154, 0.42)
 visible = false
 
 [node name="Mastil Fondo" type="Sprite2D" parent="UI"]
-position = Vector2(1737, 602)
+position = Vector2(940, 360)
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("3_i4fna")
 
 [node name="Mastil" type="Sprite2D" parent="UI"]
-position = Vector2(1737, 602)
+position = Vector2(940, 360)
 scale = Vector2(0.355469, 0.355469)
 texture = ExtResource("3_fvwu0")
 

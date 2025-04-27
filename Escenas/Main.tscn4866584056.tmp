@@ -57,6 +57,7 @@ texture = ExtResource("2_bgy44")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DebugConsole" type="RichTextLabel" parent="UI"]
+visible = false
 offset_left = 64.0
 offset_top = 86.0
 offset_right = 451.0
@@ -83,7 +84,7 @@ position = Vector2(990, 576)
 z_index = 2
 
 [node name="vela" parent="Barca/Encima" instance=ExtResource("4_mbvap")]
-position = Vector2(990, 446)
+position = Vector2(990, 478)
 
 [node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
 position = Vector2(975, 581)

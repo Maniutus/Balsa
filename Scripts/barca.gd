@@ -2,11 +2,15 @@ extends CharacterBody2D
 
 @onready var enviroment_node = get_parent().get_node("Enviroment")
 @onready var map_barca       = get_node("Tile Barca") 
+@onready var apuntado_vela   = preload("res://Scripts/vela.gd")
+
 
 var referencia_tiles: float = 9				#tiles iniciales
 var multiplicador_fuerza: float = 2         #Variable multiplicadora de fuerza por viento 
 
 func _physics_process(delta: float) -> void:
+	
+	DebugConsole.log([apuntado_vela])
 	
 	var velocidad_viento = enviroment_node.velocidad_viento_n        
 	var dir_viento_deg =  enviroment_node.dir_viento 

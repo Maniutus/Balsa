@@ -18,16 +18,25 @@ func _physics_process(delta):
 	
 func uso():
 	if state == State.LLENA:
+		print("Ya esta llena")
+		DebugConsole.log(["Ya esta llena de aceite"])
 		return
 	elif state== State.VACIA or state == State.CANDESCENTE:
 		state = State.LLENA
+		print("Antorcha llenada de aceite")
+		DebugConsole.log(["Antorcha recargada de aceite"])
 	elif state == State.ENCENDIDA:
 		state = State.ENCENDIDA
+		print("La antorcha ya esta encendida")
+		DebugConsole.log(["La antorcha ya esta encendida"])
+		print()
 	
 	
 	
 func desuso():
 	state = State.ENCENDIDA
+	print("Antorcha encendida")
+	DebugConsole.log(["Antorcha encendida"])
 
 	
 func animaciones():

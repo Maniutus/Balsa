@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjgwfg1eavi3g"]
+[gd_scene load_steps=11 format=3 uid="uid://cjgwfg1eavi3g"]
 
 [ext_resource type="Script" uid="uid://d4b7m2sfltt41" path="res://Scripts/enviroment.gd" id="1_gcjfx"]
 [ext_resource type="Texture2D" uid="uid://cah5kkuvc70gj" path="res://Assets/Enviroment/Viento/pngfind.com-seta-png-1358028.png" id="2_vyo3i"]
@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://ca55pbnhpmv8a" path="res://Assets/Enviroment/Disco Hora/Barra.png" id="6_pf0qm"]
 [ext_resource type="Texture2D" uid="uid://cfhltsfmiehhe" path="res://Assets/Enviroment/Contador dias/Contador_sprite.png" id="7_rewxq"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_rewxq"]
+font_size = 98
+font_color = Color(0, 0, 0, 1)
+
 [node name="Enviroment" type="Node2D"]
-position = Vector2(-7, -6)
+position = Vector2(-12, -9)
 script = ExtResource("1_gcjfx")
 metadata/_edit_group_ = true
 
@@ -61,6 +65,7 @@ texture_over = ExtResource("5_rewxq")
 texture_progress = ExtResource("6_pf0qm")
 
 [node name="Contador" type="Node2D" parent="UI/Sprites"]
+z_index = 2
 
 [node name="contador_sprite" type="Sprite2D" parent="UI/Sprites/Contador"]
 position = Vector2(0, 44.4444)
@@ -68,13 +73,12 @@ scale = Vector2(0.227111, 0.227111)
 texture = ExtResource("7_rewxq")
 
 [node name="Label" type="Label" parent="UI/Sprites/Contador"]
-offset_left = -75.5556
-offset_top = -26.6667
-offset_right = -35.5556
-offset_bottom = -3.66667
-scale = Vector2(5.49488, 5.86063)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -84.4447
+offset_top = -22.2222
+offset_right = 86.5553
+offset_bottom = 114.778
 text = "000"
+label_settings = SubResource("LabelSettings_rewxq")
 
 [node name="dia_noche" type="CanvasModulate" parent="."]
 script = ExtResource("4_dlfo4")

@@ -54,6 +54,7 @@ var mesa_nombre: String =""
 enum CONTACTO {ON, OFF}
 var contacto = CONTACTO.OFF
 var action = false
+var uso_de_mesa: bool = false
 
 func _ready():
 
@@ -73,56 +74,61 @@ func _process(delta):
 	time_accum += delta
 	_animate_stamina_bar(delta)
 	interaction()
-	
+	#print(uso_de_mesa)
+	#DebugConsole.log([uso_de_mesa])
 	
 	
 
 func _physics_process(delta):
-	
-	# 1) Input
-	var dir = Vector2(
-		Input.get_action_strength("der") - Input.get_action_strength("izq"),
-		Input.get_action_strength("down")  - Input.get_action_strength("up")
-	).normalized()
+	if uso_de_mesa == true:
+		return
+	else:
+			
+		var dir = Vector2(
+			Input.get_action_strength("der") - Input.get_action_strength("izq"),
+			Input.get_action_strength("down")  - Input.get_action_strength("up")
+		).normalized()
 
 	#animación según estado y movimiento
-	var desired_anim = "Idle_Land"
-	if state == State.ON_LAND:
-		if dir != Vector2.ZERO:
-			desired_anim = "Walk"
-		else:
+		var desired_anim = "Idle_Land"
+
+		if state == State.ON_LAND:
+			if dir != Vector2.ZERO:
+				desired_anim = "Walk"
+			else:
+				desired_anim = "Idle_Land"
+		elif state == State.IN_WATER: 
+			if dir != Vector2.ZERO:
+				desired_anim = "Swim"
+			else:
+				desired_anim = "Idle_Swim"
+		elif state == State.EN_MESA:
 			desired_anim = "Idle_Land"
-	elif state == State.IN_WATER: 
-		if dir != Vector2.ZERO:
-			desired_anim = "Swim"
-		else:
-			desired_anim = "Idle_Swim"
-	elif state == State.EN_MESA:
-		desired_anim = "Idle_Land"
 		
+		if anim.animation != desired_anim:
+			anim.play(desired_anim)
 
-	if anim.animation != desired_anim:
-		anim.play(desired_anim)
-
-	_transicion_barco_agua_check()
-	match state:
-		State.ON_LAND:
-			velocity = dir * WALK_SPEED
-			_recover_stamina(delta)
+		_transicion_barco_agua_check()
+		
+		match state:
+			State.ON_LAND:
+				uso_de_mesa = false
+				velocity = dir * WALK_SPEED
+				_recover_stamina(delta)
 			
 			
-		State.IN_WATER:
-			velocity = dir * SWIM_SPEED
-			_drain_stamina(delta)
+			State.IN_WATER:
+				uso_de_mesa = false
+				velocity = dir * SWIM_SPEED
+				_drain_stamina(delta)
 			
 			
-		State.EN_MESA:
-			velocity = dir * 0
-			_recover_stamina(delta)
+			State.EN_MESA:
+				uso_de_mesa = true
+				#velocity = dir * 0
+				_recover_stamina(delta)
 			
-			
-	#_transicion_barco_agua_check()
-	move_and_slide()
+		move_and_slide()
 
 #— Drena stamina real
 func _drain_stamina(delta):
@@ -150,6 +156,7 @@ func _animate_stamina_bar(delta):
 
 func _drown():
 	print("¡Te has ahogado!")
+	DebugConsole.log(["¡Te has ahogado!"])
 	state = State.ON_LAND
 	get_parent().remove_child(self)
 	nodo_barca.add_child(self)
@@ -170,7 +177,7 @@ func _on_mesadetector_area_entered(area: Area2D) -> void:
 		mesa = nodo_mesa
 		
 		
-		
+		DebugConsole.log(["Cerca de ", mesa_nombre])
 		print ("Cerca de ", mesa_nombre,mesa)
 	
 	
@@ -186,15 +193,18 @@ func interaction():
 	if contacto == CONTACTO.ON and Input.is_action_just_pressed("E"):
 		action = !action
 		if action  :
+			uso_de_mesa = true
 			state = State.EN_MESA
-			#m_player = MOVIMIENTO_PLAYER.OFF
-			mesa.uso() # Llamado a la funcion uso de la mesa seleccionada $vela as script
+			mesa.uso()
 			print(mesa_nombre, "Activada", mesa)
+			DebugConsole.log([mesa_nombre," Activada"])
 		elif !action :
+			mesa.desuso()
+			uso_de_mesa = false
 			state = State.ON_LAND
-			#m_player = MOVIMIENTO_PLAYER.ON
-			mesa.desuso() 
+			
 			print (mesa_nombre, "Desactivada")
+			DebugConsole.log([mesa_nombre," Desactivada"])
 		
 			
 			
@@ -212,10 +222,12 @@ func _transicion_barco_agua_check():
 		state = State.ON_LAND
 		call_deferred("cambio_padres", nodo_barca)
 		print("Subido a la barca")
+		DebugConsole.log(["Subido a la barca"])
 	elif not en_barco and state != State.IN_WATER:
 		state = State.IN_WATER
 		call_deferred("cambio_padres", nodo_main)
 		print("Caído al agua")
+		DebugConsole.log(["Caído al agua"])
 
 
 

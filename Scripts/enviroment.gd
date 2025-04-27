@@ -30,6 +30,9 @@ func _ready() -> void:
 	direccion_viento()
 	velocidad_viento ()
 	print(nombre_dia)
+	DebugConsole.log([nombre_dia])
+	DebugConsole.log(["El clima es ",clima])
+	
 	
 
 func _process(delta: float) -> void:
@@ -55,9 +58,11 @@ func cambio_ciclo_dia_noche(delta):
 			contador.text = "%03d" % contador_dias
 			nombre_dia = "Es de Dia"
 			print(nombre_dia, " Dia: ", contador_dias)
+			DebugConsole.log([nombre_dia, " Dia: ", contador_dias])
 		else:
 			nombre_dia = "Es de Noche"
 			print(nombre_dia)
+			DebugConsole.log([nombre_dia])
 
 func animacion_sprites(delta):
 	
@@ -78,6 +83,7 @@ func pool_climas():
 	var clima_elegida = claves[idx]
 	clima = clima_elegida
 	print(clima)
+	DebugConsole.log(["El clima es ",clima])
 
 func velocidad_viento():
 
@@ -91,6 +97,7 @@ func velocidad_viento():
 	#print("EL viento_min es: ", viento_min)
 	#print("EL viento_max es: ", viento_max)
 	print("La velocidad del viento es: ", velocidad_viento_n)
+	DebugConsole.log(["La velocidad del viento es: ", velocidad_viento_n])
 	
 func direccion_viento():
 	var rango_max = 150
@@ -103,6 +110,8 @@ func direccion_viento():
 	
 	dir_viento = dir_viento_raw 
 	print("Direccion Viento: ", dir_viento, " grados")
+	DebugConsole.log(["Direccion Viento: ", dir_viento_raw])
+	
 	
 func _animate_velocidad_viento_bar():
 	barra_velocidad_viento.value = float(velocidad_viento_n)/100 
