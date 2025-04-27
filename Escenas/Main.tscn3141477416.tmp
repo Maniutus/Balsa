@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=4 uid="uid://ujys0qes06yt"]
+
+[ext_resource type="Texture2D" uid="uid://d16pgocrls4bx" path="res://Assets/Cuadricula.png" id="2_bgy44"]
+[ext_resource type="PackedScene" uid="uid://cjgwfg1eavi3g" path="res://Escenas/enviroment.tscn" id="2_mbvap"]
+[ext_resource type="Shader" uid="uid://bq2jxfpjq0fgh" path="res://Shaders/Mar.gdshader" id="2_sem21"]
+[ext_resource type="Script" uid="uid://ceyykimgqr0r6" path="res://Scripts/barca.gd" id="3_r8q0l"]
+[ext_resource type="Script" uid="uid://b0x6wvvjh2ymj" path="res://Scripts/DebugConsole.gd" id="4_3ihj5"]
+[ext_resource type="Texture2D" uid="uid://ds3ttg5frkt7p" path="res://Assets/Tiles/Balsa/Suelo/Suelo1.png" id="4_3yqt6"]
+[ext_resource type="PackedScene" uid="uid://b63blfyfhb0fi" path="res://Escenas/vela.tscn" id="4_mbvap"]
+[ext_resource type="PackedScene" uid="uid://01dmontnvb8m" path="res://Escenas/jugador.tscn" id="4_qpgdo"]
+[ext_resource type="PackedScene" uid="uid://bt7k4kqf6lhh5" path="res://Escenas/cofre.tscn" id="5_r8q0l"]
+[ext_resource type="PackedScene" uid="uid://by7i15is7e85i" path="res://Escenas/antorcha.tscn" id="9_a5a2i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5xpj"]
+shader = ExtResource("2_sem21")
+shader_parameter/water_color = Color(0.0823529, 0.709804, 0.643137, 1)
+shader_parameter/time_speed = 1.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_scale = 56.62
+shader_parameter/caustic_freq = 80.0
+shader_parameter/caustic_strength = 0.065
+shader_parameter/caustic_width = 0.005
+shader_parameter/noise_scale = 50.0
+shader_parameter/noise_speed = 0.045
+shader_parameter/noise_amp = 0.125
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3yqt6"]
+texture = ExtResource("4_3yqt6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_r8q0l"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_3yqt6")
+
+[node name="Main" type="Node2D"]
+
+[node name="Mar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_j5xpj")
+offset_right = 1924.99
+offset_bottom = 1080.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(960, 540)
+metadata/_edit_lock_ = true
+
+[node name="pruebamovimientobarca" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(982, 538.5)
+scale = Vector2(10.2077, 5.61929)
+texture = ExtResource("2_bgy44")
+
+[node name="Enviroment" parent="." instance=ExtResource("2_mbvap")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DebugConsole" type="RichTextLabel" parent="UI"]
+offset_left = 64.0
+offset_top = 86.0
+offset_right = 451.0
+offset_bottom = 392.0
+script = ExtResource("4_3ihj5")
+max_lines = null
+
+[node name="Barca" type="CharacterBody2D" parent="."]
+disable_mode = 2
+collision_mask = 6
+script = ExtResource("3_r8q0l")
+
+[node name="Tile Barca" type="TileMapLayer" parent="Barca"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAoAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAARAAoAAAAAAAAAAAARAAkAAAAAAAAAAAARAAgAAAAAAAAAAAARAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_r8q0l")
+use_kinematic_bodies = true
+
+[node name="SpawnPoint" type="Node2D" parent="Barca"]
+visible = false
+position = Vector2(990, 576)
+
+[node name="Encima" type="Node2D" parent="Barca"]
+z_index = 2
+
+[node name="vela" parent="Barca/Encima" instance=ExtResource("4_mbvap")]
+position = Vector2(990, 446)
+
+[node name="Jugador" parent="Barca" instance=ExtResource("4_qpgdo")]
+position = Vector2(975, 581)
+
+[node name="Debajo" type="Node2D" parent="Barca"]
+z_index = 1
+
+[node name="Antorcha" parent="Barca/Debajo" instance=ExtResource("9_a5a2i")]
+position = Vector2(886, 558)
+
+[node name="cofre" parent="Barca/Debajo" instance=ExtResource("5_r8q0l")]
+position = Vector2(1055, 664)
+
+[node name="cofre2" parent="Barca/Debajo" instance=ExtResource("5_r8q0l")]
+position = Vector2(926, 663)
